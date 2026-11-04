@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>⚡ Magische Engelse Woordenspelletjes</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div id="app">
+    <!-- SCREEN: Welcome / Topic Selection -->
+    <div id="screen-welcome" class="screen active">
+      <div class="welcome-content">
+        <div class="mascot-header">
+          <div class="mascot large">🧙‍♂️</div>
+          <h1>Engels Leren!</h1>
+          <p class="mascot-speech">Welkom, Mia! Kies een onderwerp om je magische vaardigheden te verbeteren!</p>
+          <div id="total-stars-display" class="total-stars"></div>
+        </div>
+        <div id="topic-list" class="topic-list"></div>
+        <div style="text-align:center;margin-top:20px;">
+          <button id="btn-home" class="btn btn-secondary" style="display:none;">🏠 Terug naar het Zaals</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- SCREEN: Difficulty Selection -->
+    <div id="screen-difficulty" class="screen">
+      <div class="difficulty-content">
+        <div class="game-header" style="margin-bottom:16px;">
+          <button id="btn-diff-back" class="btn-small">← Terug</button>
+          <div></div>
+        </div>
+        <div class="mascot-header">
+          <div class="mascot large">🧙‍♂️</div>
+          <h1 id="difficulty-topic-title">Onderwerp</h1>
+          <p class="mascot-speech">Kies hoe moeilijk je het wilt maken!</p>
+        </div>
+        <div id="difficulty-list" class="difficulty-list"></div>
+      </div>
+    </div>
+
+    <!-- SCREEN: Game -->
+    <div id="screen-game" class="screen">
+      <div class="game-header">
+        <button id="btn-back" class="btn-small">← Terug</button>
+        <div class="game-info">
+          <span id="game-difficulty-label"></span>
+          <span id="game-stars"></span>
+        </div>
+      </div>
+      <div class="mascot-speech" id="game-mascot"></div>
+      <div id="game-area" class="game-area"></div>
+      <div id="game-feedback" class="feedback"></div>
+    </div>
+
+    <!-- SCREEN: Round Complete -->
+    <div id="screen-complete" class="screen">
+      <div class="complete-content">
+        <div class="mascot large" id="complete-mascot">🧙‍♂️</div>
+        <h1 id="complete-title">Gefeliciteerd!</h1>
+        <div id="complete-stars" class="stars-display"></div>
+        <p id="complete-message"></p>
+        <div id="complete-actions" class="complete-actions"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/progress.js?v=3"></script>
+  <script src="js/game1.js?v=3"></script>
+  <script src="js/game2.js?v=3"></script>
+  <script src="js/game3.js?v=3"></script>
+  <script src="js/app.js?v=3"></script>
+</body>
+</html>

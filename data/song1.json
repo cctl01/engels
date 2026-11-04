@@ -1,0 +1,60 @@
+{
+  "topic": "Song1",
+  "words": [
+    {
+      "english": "hair",
+      "dutch": "haren",
+      "image": "assets/images/hair.png"
+    },
+    {
+      "english": "blonde",
+      "dutch": "blond",
+      "image": "assets/images/blonde.png"
+    },
+    {
+      "english": "curly",
+      "dutch": "gekruld",
+      "image": "assets/images/curly.png"
+    },
+    {
+      "english": "straight",
+      "dutch": "steil",
+      "image": "assets/images/straight.png"
+    },
+    {
+      "english": "long",
+      "dutch": "lang",
+      "image": "assets/images/long.png"
+    },
+    {
+      "english": "short",
+      "dutch": "kort",
+      "image": "assets/images/short.png"
+    },
+        {
+      "english": "face",
+      "dutch": "gezicht",
+      "image": "assets/images/face.png"
+    },
+        {
+      "english": "round",
+      "dutch": "rond",
+      "image": "assets/images/round.png"
+    },
+        {
+      "english": "dark",
+      "dutch": "donker",
+      "image": "assets/images/dark.png"
+    },
+        {
+      "english": "moustache",
+      "dutch": "snor",
+      "image": "assets/images/moustache.png"
+    },
+        {
+      "english": "bald",
+      "dutch": "kaal",
+      "image": "assets/images/bald.png"
+    }
+  ]
+}

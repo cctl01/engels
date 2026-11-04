@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <title>TTS Test</title>
+  <style>
+    body { font-family: sans-serif; max-width: 600px; margin: 40px auto; padding: 20px; }
+    select, button { font-size: 1rem; padding: 8px; margin: 4px; }
+    .word-btn { display: inline-block; margin: 4px; }
+  </style>
+</head>
+<body>
+  <h2>TTS Test</h2>
+
+  <label>Voice:</label>
+  <select id="voice-select"><option>Laden...</option></select>
+
+  <h3>Woorden testen:</h3>
+  <div id="words"></div>
+
+  <h3>Zelf invoeren:</h3>
+  <input type="text" id="custom-text" placeholder="Typ een woord..." style="width:200px;">
+  <button onclick="speak(document.getElementById('custom-text').value)">Spreek</button>
+
+  <script>
+    const words = ['dog', 'cat', 'bird', 'fish', 'horse', 'red', 'blue', 'green', 'yellow', 'apple', 'banana', 'water', 'book', 'house', 'sun', 'moon', 'star'];
+    const wordsDiv = document.getElementById('words');
+    words.forEach(w => {
+      const btn = document.createElement('button');
+      btn.className = 'word-btn';
+      btn.textContent = w;
+      btn.onclick = () => speak(w);
+      wordsDiv.appendChild(btn);
+    });
+
+    let voices = [];
+    function loadVoices() {
+      voices = speechSynthesis.getVoices();
+      const sel = document.getElementById('voice-select');
+      sel.innerHTML = '';
+      voices.forEach((v, i) => {
+        if (v.lang.startsWith('en')) {
+          const opt = document.createElement('option');
+          opt.value = i;
+          opt.textContent = `${v.name} (${v.lang})`;
+          sel.appendChild(opt);
+        }
+      });
+      if (sel.options.length === 0) {
+        const opt = document.createElement('option');
+        opt.textContent = 'Geen Engelse voices gevonden';
+        sel.appendChild(opt);
+      }
+    }
+
+    speechSynthesis.onvoiceschanged = loadVoices;
+    loadVoices();
+
+    function speak(text) {
+      speechSynthesis.cancel();
+      const u = new SpeechSynthesisUtterance(text);
+      const sel = document.getElementById('voice-select');
+      if (sel.value !== '') u.voice = voices[sel.value];
+      u.rate = 0.9;
+      speechSynthesis.speak(u);
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+{
+  "topic": "Kleuren",
+  "words": [
+    {
+      "english": "red",
+      "dutch": "rood",
+      "image": "assets/images/red.png"
+    },
+    {
+      "english": "blue",
+      "dutch": "blauw",
+      "image": "assets/images/blue.png"
+    },
+    {
+      "english": "green",
+      "dutch": "groen",
+      "image": "assets/images/green.png"
+    },
+    {
+      "english": "yellow",
+      "dutch": "geel",
+      "image": "assets/images/yellow.png"
+    }
+  ]
+}
