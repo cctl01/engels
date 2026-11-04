@@ -51,7 +51,7 @@ const App = (() => {
       const topics = topicIndex.topics;
   
       if (topics.length === 0) {
-        list.innerHTML = '<p style="text-align:center;color:#999;grid-column:1/-1;">Geen onderwerpen gevonden.</p>';
+        list.innerHTML = '<p style="text-align:center;color:#999;grid-column:1/-1;">Geen onderwerpen gevonde.</p>';
         return;
       }
   
