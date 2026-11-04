@@ -29,59 +29,75 @@ const App = (() => {
     }
   }
 
+  
   async function loadTopics() {
     const list = document.getElementById('topic-list');
     list.innerHTML = '<p style="text-align:center;color:#999;grid-column:1/-1;">Onderwerpen laden...</p>';
-
+  
     try {
-      const response = await fetch('./data/');
-      if (!response.ok) throw new Error('Kan onderwerpen map niet vinden');
-
-      const html = await response.text();
-
-      // Parse the directory listing to find .json files
-      const links = html.match(/href="([^"]+\.json)"/g) || [];
-      const topics = links.map(link => {
-        const name = link.match(/href="([^"]+)"/)[1];
-        const topicName = name.replace('.json', '');
-        return { id: topicName, name: topicName, file: name };
-      });
-
+      // Load the list of available topics
+      const response = await fetch('./data/topics.json');
+  
+      if (!response.ok) {
+        throw new Error('Kan topics.json niet laden');
+      }
+  
+      const topicIndex = await response.json();
+  
+      if (!topicIndex.topics || !Array.isArray(topicIndex.topics)) {
+        throw new Error('Ongeldig topics.json formaat');
+      }
+  
+      const topics = topicIndex.topics;
+  
       if (topics.length === 0) {
-        list.innerHTML = '<p style="text-align:center;color:#999;grid-column:1/-1;">Geen onderwerpen gevonden in de data map.</p>';
+        list.innerHTML = '<p style="text-align:center;color:#999;grid-column:1/-1;">Geen onderwerpen gevonde.</p>';
         return;
       }
-
-      list.innerHTML = topics.map(t => `
-        <div class="topic-card" data-topic-id="${t.id}">
+  
+      list.innerHTML = topics.map(topicId => `
+        <div class="topic-card" data-topic-id="${topicId}">
           <div class="topic-icon">🏰</div>
-          <div class="topic-name">${t.name}</div>
+          <div class="topic-name">${topicId}</div>
         </div>
       `).join('');
-
+  
       list.querySelectorAll('.topic-card').forEach(card => {
         card.addEventListener('click', async () => {
           const topicId = card.dataset.topicId;
+  
           try {
-            const response = await fetch('./data/' + topicId + '.json');
-            if (!response.ok) throw new Error('Kan bestand niet laden');
+            const response = await fetch('./data/' + encodeURIComponent(topicId) + '.json');
+  
+            if (!response.ok) {
+              throw new Error('Kan bestand niet laden: ' + topicId);
+            }
+  
             const data = await response.json();
+  
             if (!data.words || !Array.isArray(data.words)) {
               throw new Error('Ongeldig formaat: geen "words" array gevonden');
             }
+  
             currentTopic = data;
             currentTopicId = topicId;
+  
             updateHomeButton();
             showDifficultyScreen();
+  
           } catch (err) {
             alert('Fout bij laden van onderwerp: ' + err.message);
           }
         });
       });
+  
     } catch (err) {
-      list.innerHTML = '<p style="text-align:center;color:#999;grid-column:1/-1;">Fout bij laden: ' + err.message + '</p>';
+      list.innerHTML =
+        '<p style="text-align:center;color:#999;grid-column:1/-1;">Fout bij laden: ' +
+        err.message + '</p>';
     }
   }
+
 
   function showDifficultyScreen() {
     showScreen('screen-difficulty');
