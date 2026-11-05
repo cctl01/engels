@@ -141,7 +141,7 @@ const Game2 = (() => {
   function getMascotMessage() {
     const messages = [
       'Typ het Engelse woord! ⚡',
-      'Je kent ze wel, jongen/meisje! 🏰',
+      'Je kent ze wel, Mia! 🏰',
       'Focus! Het komt vast goed! ✨',
       'Succes! Je kunt dit! 💫'
     ];
