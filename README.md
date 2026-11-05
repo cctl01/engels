@@ -10,7 +10,7 @@ An interactive English vocabulary learning game for kids, themed around awizzard
   - **Hard** — Listen to an English word (TTS) and select the correct Dutch translation
 - **Progressive unlocking** — Complete a difficulty with 2+ stars to unlock the next level
 - **Star tracking** — Total stars persist across browser sessions via localStorage
-- **Harry Potter theme** — Magical design with gold accents, Cinzel font, and themed mascot messages
+- **Wizzard theme** — Magical design with gold accents, Cinzel font, and themed mascot messages
 - **Touch-friendly** — Works on desktop, tablet, and mobile
 - **Extensible** — Add new word topics by dropping JSON files into the `data/` folder
 
