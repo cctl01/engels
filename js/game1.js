@@ -242,7 +242,7 @@ const Game1 = (() => {
 
   function getMascotMessage() {
     const messages = [
-      'Succes, jongen/meisje! Je kunt dit! ⚡',
+      'Succes, Mia! Je kunt dit! ⚡',
       'Let goed op de plaatjes! 👀',
       'Sleep het Engelse woord naar het Nederlandse woord! 🎯',
       'Je doet het geweldig! 💫',
