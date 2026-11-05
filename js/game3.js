@@ -25,8 +25,8 @@ const Game3 = (() => {
     const voices = speechSynthesis.getVoices();
 
     return (
-      voices.find(v => v.lang === 'en-GB' && v.default) ||
-      voices.find(v => v.lang === 'en-GB') ||
+      voices.find(v => v.lang === 'en-US' && v.default) ||
+      voices.find(v => v.lang === 'en-US') ||
       voices.find(v => v.lang.startsWith('en')) ||
       null
     );
