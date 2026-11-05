@@ -7,11 +7,61 @@ const App = (() => {
   let currentDifficulty = null;
 
   function init() {
+    const name = Progress.getPlayerName();
+    if (!name) {
+      showScreen('screen-name');
+      setupNameScreen();
+      return;
+    }
     showScreen('screen-welcome');
+    setWelcomeMessage(name);
     updateHomeButton();
     loadTopics();
     setupNavigation();
     updateTotalStars();
+  }
+
+  function setWelcomeMessage(name) {
+    const speech = document.getElementById('welcome-speech');
+    if (speech) {
+      speech.textContent = `Welkom, ${name}! Kies een onderwerp om je magische vaardigheden te verbeteren!`;
+    }
+  }
+
+  function setupNameScreen() {
+    const input = document.getElementById('player-name-input');
+    const submitBtn = document.getElementById('player-name-submit');
+    const feedback = document.getElementById('name-feedback');
+
+    function submitName() {
+      const name = Progress.setPlayerName(input.value);
+      if (name) {
+        setWelcomeMessage(name);
+        showScreen('screen-welcome');
+        updateHomeButton();
+        loadTopics();
+        setupNavigation();
+        updateTotalStars();
+      } else {
+        feedback.textContent = 'Vul alsjeblieft een naam in! 🪄';
+        feedback.className = 'feedback wrong';
+        setTimeout(() => {
+          feedback.textContent = '';
+          feedback.className = 'feedback';
+        }, 2000);
+      }
+    }
+
+    if (submitBtn) {
+      submitBtn.addEventListener('click', submitName);
+    }
+
+    if (input) {
+      input.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') submitName();
+      });
+      input.focus();
+    }
   }
 
   function updateHomeButton() {
@@ -51,7 +101,7 @@ const App = (() => {
       const topics = topicIndex.topics;
   
       if (topics.length === 0) {
-        list.innerHTML = '<p style="text-align:center;color:#999;grid-column:1/-1;">Geen onderwerpen gevonde.</p>';
+        list.innerHTML = '<p style="text-align:center;color:#999;grid-column:1/-1;">Geen onderwerpen gevonden.</p>';
         return;
       }
   

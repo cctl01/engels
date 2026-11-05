@@ -8,13 +8,27 @@
 </head>
 <body>
   <div id="app">
+    <!-- SCREEN: Name Entry -->
+    <div id="screen-name" class="screen active">
+      <div class="complete-content">
+        <div class="mascot large">🧙‍♂️</div>
+        <h1>Welkom!</h1>
+        <div class="mascot-speech" style="display:block;">Hoi! Wat is jouw naam?</div>
+        <div class="type-input-area" style="margin-top:24px;">
+          <input type="text" id="player-name-input" class="type-input" placeholder="Jouw naam..." autocomplete="off" spellcheck="false" maxlength="20">
+          <button id="player-name-submit" class="btn btn-primary">Start!</button>
+        </div>
+        <div id="name-feedback" class="feedback"></div>
+      </div>
+    </div>
+
     <!-- SCREEN: Welcome / Topic Selection -->
-    <div id="screen-welcome" class="screen active">
+    <div id="screen-welcome" class="screen">
       <div class="welcome-content">
         <div class="mascot-header">
           <div class="mascot large">🧙‍♂️</div>
           <h1>Engels Leren!</h1>
-          <p class="mascot-speech">Welkom, Mia! Kies een onderwerp om je magische vaardigheden te verbeteren!</p>
+          <p class="mascot-speech" id="welcome-speech">Welkom! Kies een onderwerp om je magische vaardigheden te verbeteren!</p>
           <div id="total-stars-display" class="total-stars"></div>
         </div>
         <div id="topic-list" class="topic-list"></div>
@@ -66,10 +80,10 @@
     </div>
   </div>
 
-  <script src="js/progress.js?v=3"></script>
-  <script src="js/game1.js?v=3"></script>
-  <script src="js/game2.js?v=3"></script>
-  <script src="js/game3.js?v=3"></script>
-  <script src="js/app.js?v=3"></script>
+  <script src="js/progress.js?v=4"></script>
+  <script src="js/game1.js?v=4"></script>
+  <script src="js/game2.js?v=4"></script>
+  <script src="js/game3.js?v=4"></script>
+  <script src="js/app.js?v=4"></script>
 </body>
 </html>

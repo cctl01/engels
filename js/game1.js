@@ -241,8 +241,9 @@ const Game1 = (() => {
   }
 
   function getMascotMessage() {
+    const name = Progress.getPlayerName() || 'Mia';
     const messages = [
-      'Succes, Mia! Je kunt dit! ⚡',
+      `Succes, ${name}! Je kunt dit! ⚡`,
       'Let goed op de plaatjes! 👀',
       'Sleep het Engelse woord naar het Nederlandse woord! 🎯',
       'Je doet het geweldig! 💫',

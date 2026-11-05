@@ -14,6 +14,7 @@ const Progress = (() => {
 
   function getDefault() {
     return {
+      name: null,
       topics: {},
       totalStars: 0,
       streak: 0,
@@ -123,6 +124,26 @@ const Progress = (() => {
     return calculateTotalStars(data);
   }
 
+  /**
+   * Get the player's name
+   */
+  function getPlayerName() {
+    const data = load();
+    return data.name || null;
+  }
+
+  /**
+   * Set the player's name (only if not already set)
+   */
+  function setPlayerName(name) {
+    const data = load();
+    if (data.name) return data.name; // already set, ignore
+    data.name = name.trim();
+    if (!data.name) return null;
+    save(data);
+    return data.name;
+  }
+
   return {
     load,
     getTopicProgress,
@@ -130,6 +151,8 @@ const Progress = (() => {
     isUnlocked,
     getStars,
     isTopicComplete,
-    getTotalStars
+    getTotalStars,
+    getPlayerName,
+    setPlayerName
   };
 })();
