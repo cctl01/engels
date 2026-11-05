@@ -57,7 +57,7 @@ To share on your network, bind to all interfaces:
 python3 -m http.server 8000 --bind 0.0.0.0
 ```
 
-Then visit `http://<your-mac-ip>:8000` from any device on the same network.
+Then visit `http://<your-ip>:8000` from any device on the same network.
 
 ## Tech Stack
 
