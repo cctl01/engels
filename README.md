@@ -1,6 +1,6 @@
 # Magical English Word Games
 
-An interactive English vocabulary learning game for kids, themed around the Harry Potter universe. Learn new words by matching, typing, or listening — three difficulty levels provide growing challenges, and stars reward every achievement.
+An interactive English vocabulary learning game for kids, themed around awizzard universe. Learn new words by matching, typing, or listening — three difficulty levels provide growing challenges, and stars reward every achievement.
 
 ## Features
 
