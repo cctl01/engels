@@ -55,6 +55,26 @@
       "english": "bald",
       "dutch": "kaal",
       "image": "assets/images/bald.png"
+    },
+        {
+      "english": "I have brown eyes",
+      "dutch": "ik heb bruine ogen",
+      "image": "assets/images/eyes.png"
+    },
+        {
+      "english": "He wears glasses",
+      "dutch": "hij draagt een bril",
+      "image": "assets/images/glasses.png"
+    },
+        {
+      "english": "He has a light beard",
+      "dutch": "hij heeft een lichte baard",
+      "image": "assets/images/moustache.png"
+    },
+        {
+      "english": "I have light skin",
+      "dutch": "ik heb een lichte huid",
+      "image": "assets/images/skin.png"
     }
   ]
 }
