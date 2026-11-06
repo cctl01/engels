@@ -8,6 +8,7 @@ const Game2 = (() => {
     pairs: [],
     currentIndex: 0,
     mistakes: 0,
+    wordMistakes: 0,
     onRoundComplete: null
   };
 
@@ -46,6 +47,8 @@ const Game2 = (() => {
     const word = state.pairs[state.currentIndex];
     const progress = state.currentIndex + 1;
     const total = state.pairs.length;
+
+    state.wordMistakes = 0;
 
     return `
       <div class="type-game">
@@ -113,9 +116,29 @@ const Game2 = (() => {
       } else {
         // Wrong
         state.mistakes++;
-        showFeedback(false, `Nee, dat is niet goed. Probeer opnieuw! 🪄`);
-        input.value = '';
-        input.focus();
+        state.wordMistakes++;
+        if (state.wordMistakes >= 2) {
+          showFeedback(false, `Het goede woord is: ${correct}! 🪄`);
+          input.disabled = true;
+          submitBtn.disabled = true;
+          setTimeout(() => {
+            state.currentIndex++;
+            if (state.currentIndex < state.pairs.length) {
+              const gameAreaEl = document.getElementById('game-area');
+              gameAreaEl.innerHTML = renderGame();
+              attachEvents(gameAreaEl);
+            } else {
+              const stars = calculateStars();
+              if (state.onRoundComplete) {
+                state.onRoundComplete(stars);
+              }
+            }
+          }, 5000);
+        } else {
+          showFeedback(false, `Nee, dat is niet goed. Probeer opnieuw! 🪄`);
+          input.value = '';
+          input.focus();
+        }
       }
     }
   }
@@ -134,12 +157,12 @@ const Game2 = (() => {
       setTimeout(() => {
         feedbackEl.textContent = '';
         feedbackEl.className = 'feedback';
-      }, 1500);
+      }, 4500);
     }
   }
 
   function getMascotMessage() {
-    const name = Progress.getPlayerName() || 'Mia';
+    const name = Progress.getPlayerName() || 'Kanjer';
     const messages = [
       `Typ het Engelse woord, ${name}! ⚡`,
       `Je kent ze wel, ${name}! 🏰`,

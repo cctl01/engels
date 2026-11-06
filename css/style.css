@@ -518,6 +518,22 @@ h1 {
   text-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
 }
 
+.type-hint {
+  font-size: 1.1rem;
+  color: #c9a84c;
+  text-align: center;
+  background: linear-gradient(135deg, #2a1a0e, #3d2817);
+  border: 2px solid #c9a84c;
+  border-radius: 12px;
+  padding: 10px 20px;
+  box-shadow: 0 0 10px rgba(201, 168, 76, 0.2);
+}
+
+.type-hint strong {
+  color: #ffd700;
+  font-weight: 900;
+}
+
 .type-input-area {
   display: flex;
   gap: 12px;
