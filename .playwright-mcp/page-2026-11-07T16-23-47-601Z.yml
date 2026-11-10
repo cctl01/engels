@@ -1,0 +1,16 @@
+- generic [ref=e2]:
+  - text: ✨
+  - generic [ref=e13]:
+    - generic [ref=e14]:
+      - generic [ref=e15]: 🧙‍♂️
+      - heading "Engels Leren!" [level=1] [ref=e16]
+      - paragraph [ref=e17]: Welkom, Klas-Bot! Kies een onderwerp om je magische vaardigheden te verbeteren!
+      - generic [ref=e18]: "⭐ Totale sterren: 0"
+    - generic [ref=e19]:
+      - generic [ref=e20] [cursor=pointer]:
+        - generic [ref=e21]: 🏰
+        - generic [ref=e22]: colors
+      - generic [ref=e23] [cursor=pointer]:
+        - generic [ref=e24]: 🏰
+        - generic [ref=e25]: song1
+  - text: ⚡

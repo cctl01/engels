@@ -1,0 +1,17 @@
+- generic [ref=e2]:
+  - text: ✨
+  - generic [ref=e53]:
+    - generic [ref=e54]:
+      - button "← Terug" [ref=e55] [cursor=pointer]
+      - generic [ref=e56]:
+        - generic [ref=e57]: Gemiddeld
+        - generic [ref=e300]: ⭐⭐⭐
+    - generic [ref=e58]: Succes! Je kunt dit! 💫
+    - generic [ref=e301]:
+      - generic [ref=e302]: 1 / 5
+      - generic [ref=e304]: rond
+      - generic [ref=e305]: Hoe heet dit in het Engels?
+      - generic [ref=e306]:
+        - textbox "Typ het Engelse woord..." [active] [ref=e307]
+        - button "Controleer" [ref=e308] [cursor=pointer]
+  - text: ⚡

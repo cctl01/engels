@@ -1,0 +1,22 @@
+- generic [ref=e2]:
+  - text: ✨
+  - generic [ref=e53]:
+    - generic [ref=e54]:
+      - button "← Terug" [ref=e55] [cursor=pointer]
+      - generic [ref=e56]: Makkelijk
+    - generic [ref=e58]: Sleep het Engelse woord naar het Nederlandse woord! 🎯
+    - generic [ref=e59]:
+      - generic [ref=e60]:
+        - generic [ref=e61]: 🇬🇧 English
+        - generic [ref=e62]: red
+        - generic [ref=e63]: yellow
+        - generic [ref=e64]: blue
+        - generic [ref=e65]: green
+      - generic [ref=e66]:
+        - generic [ref=e67]: 🇳🇱 Nederlands
+        - generic [ref=e68]: rood
+        - generic [ref=e70]: groen
+        - generic [ref=e72]: geel
+        - generic [ref=e74]: blauw
+    - generic [ref=e76]: Goed zo! ✨
+  - text: ⚡

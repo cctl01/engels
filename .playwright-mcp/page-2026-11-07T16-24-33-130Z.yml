@@ -1,0 +1,28 @@
+- generic [ref=e2]:
+  - text: ✨
+  - generic [ref=e27]:
+    - button "← Terug" [ref=e29] [cursor=pointer]
+    - generic [ref=e30]:
+      - generic [ref=e31]: 🧙‍♂️
+      - heading "Kleuren" [level=1] [ref=e32]
+      - paragraph [ref=e33]: Kies hoe moeilijk je het wilt maken!
+    - generic [ref=e34]:
+      - generic [ref=e35] [cursor=pointer]:
+        - generic [ref=e36]: 🌱
+        - generic [ref=e37]:
+          - generic [ref=e38]: Makkelijk
+          - generic [ref=e39]: Engels -> Nederlands (koppel woorden)
+        - generic [ref=e40]: ☆☆☆
+      - generic [ref=e41]:
+        - generic [ref=e42]: 🌟
+        - generic [ref=e43]:
+          - generic [ref=e44]: Gemiddeld
+          - generic [ref=e45]: Nederlands -> Engels (koppel woorden)
+        - generic [ref=e46]: 🔒
+      - generic [ref=e47]:
+        - generic [ref=e48]: 🎧
+        - generic [ref=e49]:
+          - generic [ref=e50]: Moeilijk
+          - generic [ref=e51]: Luister -> Kies het goede woord
+        - generic [ref=e52]: 🔒
+  - text: ⚡

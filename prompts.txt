@@ -1,0 +1,24 @@
+# One variable per line (the part between the commas)
+# Lines starting with # are comments and will be skipped
+
+ruler
+rubber
+pencil_sharpener
+notebook
+glue_stick
+folder
+coloured_pencils
+pencil_case
+watering_the_plants
+sweeping_the_floor
+emptying_the_bin
+cleaning_the_whiteboard
+handing_out_worksheets
+whats_wrong
+dont_worry
+borrow_pencil
+here_you_are
+favourite_classroom_job
+easy_to_do
+walk_around_classroom
+make_things_clean

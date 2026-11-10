@@ -1,0 +1,23 @@
+- generic [ref=f3e2]:
+  - text: ✨
+  - generic [ref=f3e44]:
+    - generic [ref=f3e45]:
+      - button "← Terug" [ref=f3e46] [cursor=pointer]
+      - generic [ref=f3e47]:
+        - generic [ref=f3e48]: Makkelijk
+        - generic [ref=f3e129]: ⭐⭐⭐
+    - generic [ref=f3e49]: Sleep het Engelse woord naar het Nederlandse woord! 🎯
+    - generic [ref=f3e50]:
+      - generic [ref=f3e130]:
+        - generic [ref=f3e131]: 🇬🇧 English
+        - generic [ref=f3e132]: bald
+        - generic [ref=f3e133]: curly
+        - generic [ref=f3e134]: He has a light beard
+        - generic [ref=f3e135]: blonde
+      - generic [ref=f3e136]:
+        - generic [ref=f3e137]: 🇳🇱 Nederlands
+        - generic [ref=f3e138]: kaal
+        - generic [ref=f3e140]: gekruld
+        - generic [ref=f3e142]: hij heeft een lichte baard
+        - generic [ref=f3e144]: blond
+  - text: ⚡

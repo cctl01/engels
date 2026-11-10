@@ -1,0 +1,28 @@
+- generic [ref=e2]:
+  - text: ✨
+  - generic [ref=e27]:
+    - button "← Terug" [ref=e29] [cursor=pointer]
+    - generic [ref=e30]:
+      - generic [ref=e31]: 🧙‍♂️
+      - heading "Song1" [level=1] [ref=e196]
+      - paragraph [ref=e33]: Kies hoe moeilijk je het wilt maken!
+    - generic [ref=e34]:
+      - generic [ref=e197] [cursor=pointer]:
+        - generic [ref=e198]: 🌱
+        - generic [ref=e199]:
+          - generic [ref=e200]: Makkelijk
+          - generic [ref=e201]: Engels -> Nederlands (koppel woorden)
+        - generic [ref=e202]: ☆☆☆
+      - generic [ref=e203]:
+        - generic [ref=e204]: 🌟
+        - generic [ref=e205]:
+          - generic [ref=e206]: Gemiddeld
+          - generic [ref=e207]: Nederlands -> Engels (koppel woorden)
+        - generic [ref=e208]: 🔒
+      - generic [ref=e209]:
+        - generic [ref=e210]: 🎧
+        - generic [ref=e211]:
+          - generic [ref=e212]: Moeilijk
+          - generic [ref=e213]: Luister -> Kies het goede woord
+        - generic [ref=e214]: 🔒
+  - text: ⚡

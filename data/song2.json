@@ -1,0 +1,26 @@
+{
+  "topic": "Song2",
+  "words": [
+    {"english":"ruler","dutch":"liniaal","image":"assets/images/ruler.png"},
+    {"english":"rubber","dutch":"gum","image":"assets/images/rubber.png"},
+    {"english":"pencil sharpener","dutch":"puntenslijper","image":"assets/images/pencil_sharpener.png"},
+    {"english":"notebook","dutch":"schrift","image":"assets/images/notebook.png"},
+    {"english":"glue stick","dutch":"plakstift","image":"assets/images/glue_stick.png"},
+    {"english":"folder","dutch":"mapje","image":"assets/images/folder.png"},
+    {"english":"coloured pencils","dutch":"kleurpotloden","image":"assets/images/coloured_pencils.png"},
+    {"english":"pencil case","dutch":"etui","image":"assets/images/pencil_case.png"},
+    {"english":"watering the plants","dutch":"de planten water geven","image":"assets/images/watering_the_plants.png"},
+    {"english":"sweeping the floor","dutch":"de vloer vegen","image":"assets/images/sweeping_the_floor.png"},
+    {"english":"emptying the bin","dutch":"de vuilnisbak leegmaken","image":"assets/images/emptying_the_bin.png"},
+    {"english":"cleaning the whiteboard","dutch":"het whiteboard schoonvegen","image":"assets/images/cleaning_the_whiteboard.png"},
+    {"english":"handing out worksheets","dutch":"werkbladen uitdelen","image":"assets/images/handing_out_worksheets.png"},
+    {"english":"What's wrong?","dutch":"Wat is er aan de hand?","image":"assets/images/whats_wrong.png"},
+    {"english":"Don't worry.","dutch":"Maak je geen zorgen.","image":"assets/images/dont_worry.png"},
+    {"english":"Can I borrow your pencil, please?","dutch":"Mag ik je potlood lenen, alsjeblieft?","image":"assets/images/borrow_pencil.png"},
+    {"english":"Here you are.","dutch":"Alsjeblieft.","image":"assets/images/here_you_are.png"},
+    {"english":"What's your favourite classroom job?","dutch":"Wat is jouw favoriete klusje in de klas?","image":"assets/images/favourite_classroom_job.png"},
+    {"english":"It's easy to do.","dutch":"Het is makkelijk te doen.","image":"assets/images/easy_to_do.png"},
+    {"english":"You can walk around the classroom.","dutch":"Je mag door de klas lopen.","image":"assets/images/walk_around_classroom.png"},
+    {"english":"You make things clean.","dutch":"Je maakt dingen schoon.","image":"assets/images/make_things_clean.png"}
+  ]
+}

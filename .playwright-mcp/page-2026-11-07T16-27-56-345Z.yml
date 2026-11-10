@@ -1,0 +1,12 @@
+- generic [ref=e2]:
+  - text: ✨
+  - generic [ref=e78]:
+    - generic [ref=e79]: 🧙‍♂️
+    - heading "Gefeliciteerd!" [level=1] [ref=e80]
+    - generic [ref=e81]: ⭐⭐⭐
+    - paragraph [ref=e82]: Perfect! Je bent een ware tovenaar! ⚡
+    - generic [ref=e83]:
+      - button "🔄 Opnieuw Spelen" [ref=e84] [cursor=pointer]
+      - button "➡️ Volgende Niveau (2)" [ref=e85] [cursor=pointer]
+      - button "← Niveau Kies" [ref=e86] [cursor=pointer]
+  - text: ⚡

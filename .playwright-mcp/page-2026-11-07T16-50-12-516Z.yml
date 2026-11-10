@@ -1,0 +1,16 @@
+- generic [ref=e2]:
+  - text: ✨
+  - generic [ref=e53]:
+    - generic [ref=e54]:
+      - button "← Terug" [ref=e55] [cursor=pointer]
+      - generic [ref=e56]: Gemiddeld
+    - generic [ref=e58]: Typ het Engelse woord, Klas-Bot! ⚡
+    - generic [ref=e234]:
+      - generic [ref=e235]: 1 / 5
+      - generic [ref=e237]: donker
+      - generic [ref=e238]: Hoe heet dit in het Engels?
+      - generic [ref=e239]:
+        - textbox "Typ het Engelse woord..." [disabled] [ref=e240]: dark
+        - button "Controleer" [disabled] [ref=e241] [cursor=pointer]
+      - generic [ref=e242]: Goed zo! ✨
+  - text: ⚡

@@ -1,7 +1,0 @@
-# One variable per line (the part between the commas)
-# Lines starting with # are comments and will be skipped
-
-Red
-Blue
-Green
-Yellow

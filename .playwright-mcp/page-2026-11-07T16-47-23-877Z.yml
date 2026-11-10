@@ -1,0 +1,22 @@
+- generic [ref=e2]:
+  - text: ✨
+  - generic [ref=e53]:
+    - generic [ref=e54]:
+      - button "← Terug" [ref=e55] [cursor=pointer]
+      - generic [ref=e56]: Makkelijk
+    - generic [ref=e58]: Tover de woorden samen! ✨
+    - generic [ref=e59]:
+      - generic [ref=e215]:
+        - generic [ref=e216]: 🇬🇧 English
+        - generic [ref=e217]: hair
+        - generic [ref=e218]: round
+        - generic [ref=e219]: curly
+        - generic [ref=e220]: straight
+      - generic [ref=e221]:
+        - generic [ref=e222]: 🇳🇱 Nederlands
+        - generic [ref=e223]: gekruld
+        - generic [ref=e225]: steil
+        - generic [ref=e227]: haren
+        - generic [ref=e229]: rond
+    - generic [ref=e76]: Goed zo! ✨
+  - text: ⚡

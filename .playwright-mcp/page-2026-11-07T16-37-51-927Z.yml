@@ -1,0 +1,18 @@
+- generic [ref=e2]:
+  - text: ✨
+  - generic [ref=e53]:
+    - generic [ref=e54]:
+      - button "← Terug" [ref=e55] [cursor=pointer]
+      - generic [ref=e56]: Moeilijk
+    - generic [ref=e58]: Kies het goede Nederlandse woord! 🏰
+    - generic [ref=e159]:
+      - generic [ref=e160]: 4 / 4
+      - generic [ref=e161]: 🔊
+      - generic [ref=e162]: Luister goed en kies het goede woord!
+      - button "🔁 Opnieuw Luisteren" [ref=e163] [cursor=pointer]
+      - generic [ref=e164]:
+        - button "rood" [ref=e165] [cursor=pointer]
+        - button "groen" [ref=e166] [cursor=pointer]
+        - button "geel" [ref=e167] [cursor=pointer]
+        - button "blauw" [ref=e168] [cursor=pointer]
+  - text: ⚡

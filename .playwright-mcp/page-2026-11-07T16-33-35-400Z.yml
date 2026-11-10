@@ -1,0 +1,15 @@
+- generic [ref=e2]:
+  - text: ✨
+  - generic [ref=e53]:
+    - generic [ref=e54]:
+      - button "← Terug" [ref=e55] [cursor=pointer]
+      - generic [ref=e56]: Gemiddeld
+    - generic [ref=e58]: Focus! Het komt vast goed! ✨
+    - generic [ref=e105]:
+      - generic [ref=e106]: 3 / 4
+      - generic [ref=e108]: groen
+      - generic [ref=e109]: Hoe heet dit in het Engels?
+      - generic [ref=e110]:
+        - textbox "Typ het Engelse woord..." [active] [ref=e111]
+        - button "Controleer" [ref=e112] [cursor=pointer]
+  - text: ⚡
