@@ -93,7 +93,8 @@ const Game2 = (() => {
 
       if (!answer) return;
 
-      if (answer === correct) {
+      const normalizeApostrophes = value => value.replace(/['’]/g, '');
+      if (normalizeApostrophes(answer) === normalizeApostrophes(correct)) {
         // Correct!
         showFeedback(true, 'Goed zo! ✨');
         input.disabled = true;
