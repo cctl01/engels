@@ -3,7 +3,7 @@
  */
 const Progress = (() => {
   const STORAGE_KEY = 'english-games-progress';
-  const DIFFICULTY_COUNT = 4;
+  const DIFFICULTY_COUNT = 5;
 
   function load() {
     try {

@@ -22,5 +22,15 @@
     {"english":"It's easy to do.","dutch":"Het is makkelijk te doen.","image":"assets/images/easy_to_do.png"},
     {"english":"You can walk around the classroom.","dutch":"Je mag door de klas lopen.","image":"assets/images/walk_around_classroom.png"},
     {"english":"You make things clean.","dutch":"Je maakt dingen schoon.","image":"assets/images/make_things_clean.png"}
+  ],
+  "sentences": [
+    { "dutch": "Alsjeblieft.", "english": "Here you are." },
+    { "dutch": "Maak je geen zorgen.", "english": "Don't worry." },
+    { "dutch": "Wat is er aan de hand?", "english": "What's wrong?" },
+    { "dutch": "Het is makkelijk te doen.", "english": "It's easy to do." },
+    { "dutch": "Je maakt dingen schoon.", "english": "You make things clean." },
+    { "dutch": "Ik heb een liniaal.", "english": "I have a ruler." },
+    { "dutch": "Mag ik je potlood lenen, alsjeblieft?", "english": "Can I borrow your pencil, please?" },
+    { "dutch": "Je mag door de klas lopen.", "english": "You can walk around the classroom." }
   ]
 }

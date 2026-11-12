@@ -1,17 +1,19 @@
 # Magical English Word Games
 
 An interactive English vocabulary learning game for kids, themed around a wizard
-universe. Learn new words by matching, typing, listening, or flipping memory
-cards — every game rewards you with stars.
+universe. Learn new words by matching, typing, listening, flipping memory
+cards, or building sentences — every game rewards you with stars.
 
 ## Features
 
 - **Player name** — asked once on first visit, then used in the mascot's messages
-- **4 game modes**
+- **5 game modes**
   - **Woorden Koppelen** — Drag & drop (or tap) English words onto their Dutch translations
   - **Typ het Woord** — See a Dutch word with an image, type the English translation
   - **Luister en Kies** — Listen to an English word (TTS) and select the correct Dutch translation
   - **Memory** — Flip cards to find the English–Dutch pairs
+  - **Zinnenmagiër** — Read a Dutch sentence and tap the shuffled English words
+    into the right order
 - **Progressive unlocking** — Finish a game with 2+ stars to unlock the next one
 - **Star tracking** — Total stars persist across browser sessions via localStorage
 - **Wizard theme** — Magical design with gold accents, Cinzel font, and themed mascot messages
@@ -28,6 +30,19 @@ cards — every game rewards you with stars.
 - Because Memory involves many more flips than the other games, its star
   thresholds scale with the number of pairs instead of using a flat mistake limit
 
+## Sentence builder rules
+
+- Up to 5 sentences per round, picked at random from the topic's `sentences` list
+- The English words are shuffled into a tile bank; tapping a tile places it in
+  the next free slot, tapping a placed tile puts it back
+- Punctuation is stripped, so no tile ever shows `chair.` — and repeated words
+  like `the ... the` are kept as separate tiles
+- After checking, tiles turn green (right place) or red (wrong place) and the
+  feedback says how many words were correct
+- After 2 wrong attempts on the same sentence the correct sentence is revealed,
+  just like in Typ het Woord
+- A topic without a `sentences` list shows this game as locked
+
 ## Word List Format
 
 Place JSON files in the `data/` directory. Each file defines a topic:
@@ -41,12 +56,17 @@ Place JSON files in the `data/` directory. Each file defines a topic:
       "dutch": "hond",
       "image": "assets/images/dog.png"
     }
+  ],
+  "sentences": [
+    { "dutch": "De hond is bruin.", "english": "The dog is brown." }
   ]
 }
 ```
 
 - `topic` — Display name shown on the topic selection screen
 - `words` — Array of word pairs with English, Dutch, and an optional image path
+- `sentences` — Optional array used by the Sentence Builder only. Write the
+  English sentence as plain text; the game splits it into word tiles itself
 - Images are shown on the right column (Game 1), in the center (Games 2 & 3),
   and on the Dutch cards only (Memory)
 
@@ -56,7 +76,10 @@ Place JSON files in the `data/` directory. Each file defines a topic:
 2. Add your word pairs in the format above
 3. Add matching image files to `assets/images/`
 4. Add the filename (without `.json`) to the `topics` array in `data/topics.json`
-5. Refresh the page — the new topic appears on the home screen
+5. Optional: add a `sentences` list so the topic also works for the Sentence
+   Builder (`js/game5.js` also accepts a pre-split array like
+   `"english": ["The", "dog", "is", "brown"]`)
+6. Refresh the page — the new topic appears on the home screen
 
 ## Running Locally
 

@@ -6,7 +6,15 @@ const App = (() => {
     { id: 1, icon: '🧩', name: 'Woorden Koppelen', desc: 'Sleep het Engelse woord naar het Nederlandse woord' },
     { id: 2, icon: '⌨️', name: 'Typ het Woord', desc: 'Typ het Engelse woord bij de Nederlandse vertaling' },
     { id: 3, icon: '🎧', name: 'Luister en Kies', desc: 'Luister naar het Engelse woord en kies het Nederlandse woord' },
-    { id: 4, icon: '🃏', name: 'Memory', desc: 'Draai kaarten om en vind het Engelse-Nederlandse paar' }
+    { id: 4, icon: '🃏', name: 'Memory', desc: 'Draai kaarten om en vind het Engelse-Nederlandse paar' },
+    {
+      id: 5,
+      icon: '🔤',
+      name: 'Zinnenmagiër',
+      desc: 'Klik de Engelse woorden in de goede volgorde',
+      // Only playable for topics that have a "sentences" list
+      needsSentences: true
+    }
   ];
 
   let currentTopic = null;
@@ -15,6 +23,19 @@ const App = (() => {
 
   function getDifficulty(id) {
     return DIFFICULTIES.find(d => d.id === id);
+  }
+
+  function topicHasSentences() {
+    return !!(currentTopic && Array.isArray(currentTopic.sentences) && currentTopic.sentences.length > 0);
+  }
+
+  /**
+   * A game can only be played when the topic provides the data it needs
+   */
+  function isGameAvailable(difficulty) {
+    const game = getDifficulty(difficulty);
+    if (!game) return false;
+    return !game.needsSentences || topicHasSentences();
   }
 
   function init() {
@@ -96,8 +117,9 @@ const App = (() => {
     list.innerHTML = '<p style="text-align:center;color:#999;grid-column:1/-1;">Onderwerpen laden...</p>';
   
     try {
-      // Load the list of available topics
-      const response = await fetch('./data/topics.json');
+      // Load the list of available topics.
+      // Word lists are edited by hand, so never serve them from the cache.
+      const response = await fetch('./data/topics.json', { cache: 'no-cache' });
   
       if (!response.ok) {
         throw new Error('Kan topics.json niet laden');
@@ -128,7 +150,7 @@ const App = (() => {
           const topicId = card.dataset.topicId;
   
           try {
-            const response = await fetch('./data/' + encodeURIComponent(topicId) + '.json');
+            const response = await fetch('./data/' + encodeURIComponent(topicId) + '.json', { cache: 'no-cache' });
   
             if (!response.ok) {
               throw new Error('Kan bestand niet laden: ' + topicId);
@@ -167,7 +189,8 @@ const App = (() => {
 
     const list = document.getElementById('difficulty-list');
     list.innerHTML = DIFFICULTIES.map(d => {
-      const unlocked = Progress.isUnlocked(currentTopicId, d.id);
+      const available = !d.needsSentences || topicHasSentences();
+      const unlocked = available && Progress.isUnlocked(currentTopicId, d.id);
       const stars = Progress.getStars(currentTopicId, d.id);
       const starStr = '⭐'.repeat(stars) + '☆'.repeat(3 - stars);
       return `
@@ -175,7 +198,7 @@ const App = (() => {
           <div class="diff-icon">${d.icon}</div>
           <div class="diff-info">
             <div class="diff-name">${d.name}</div>
-            <div class="diff-desc">${d.desc}</div>
+            <div class="diff-desc">${available ? d.desc : 'Nog geen zinnen bij dit onderwerp'}</div>
           </div>
           ${unlocked ? `<div class="diff-stars">${starStr}</div>` : `<div class="lock-icon">🔒</div>`}
         </div>
@@ -185,7 +208,7 @@ const App = (() => {
     list.querySelectorAll('.difficulty-card').forEach(card => {
       card.addEventListener('click', () => {
         const diff = parseInt(card.dataset.difficulty);
-        if (Progress.isUnlocked(currentTopicId, diff)) {
+        if (isGameAvailable(diff) && Progress.isUnlocked(currentTopicId, diff)) {
           currentDifficulty = diff;
           startGame();
         }
@@ -194,6 +217,12 @@ const App = (() => {
   }
 
   function startGame() {
+    // The topic is fetched asynchronously after clicking a topic card, so a
+    // quick click on an old game card can happen before it is loaded.
+    if (!currentTopic) {
+      return;
+    }
+
     showScreen('screen-game');
     document.getElementById('game-difficulty-label').textContent =
       getDifficulty(currentDifficulty).name;
@@ -234,6 +263,14 @@ const App = (() => {
         (stars) => handleRoundComplete(stars)
       );
       Game4.attachEvents(gameArea);
+    } else if (currentDifficulty === 5) {
+      document.getElementById('game-mascot').textContent = Game5.getMascotMessage();
+      gameArea.innerHTML = Game5.initRound(
+        currentTopic.sentences,
+        currentDifficulty,
+        (stars) => handleRoundComplete(stars)
+      );
+      Game5.attachEvents(gameArea);
     }
   }
 

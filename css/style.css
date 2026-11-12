@@ -390,6 +390,13 @@ h1 {
   transition: all 0.3s ease;
 }
 
+/* A button that cannot be used yet has to look unusable */
+.btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
 .btn-primary {
   background: linear-gradient(135deg, #c9a84c, #ffd700);
   color: #1a0a2e;
@@ -775,5 +782,151 @@ h1 {
 
   .memory-flag {
     font-size: 0.55rem;
+  }
+}
+
+/* ===== SENTENCE BUILDER (Game 5) ===== */
+.build-game {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+}
+
+.build-progress {
+  font-family: 'Cinzel', serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #c9a84c;
+}
+
+/* The Dutch sentence that needs translating */
+/* The Dutch sentence that needs translating.
+   Deliberately not Cinzel: that font is all caps, which is hard to read
+   for a whole sentence. */
+.build-dutch {
+  font-size: 1.45rem;
+  font-weight: 800;
+  color: #ffd700;
+  text-align: center;
+  background: linear-gradient(135deg, #2a1a0e, #3d2817);
+  border: 2px solid #c9a84c;
+  border-radius: 12px;
+  padding: 14px 22px;
+  box-shadow: 0 0 14px rgba(201, 168, 76, 0.2);
+}
+
+.build-label {
+  color: #f0e6d3;
+  font-weight: 700;
+  text-align: center;
+}
+
+/* The row of empty slots that the words drop into */
+.build-answer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  max-width: 700px;
+  min-height: 58px;
+  padding: 10px;
+  border: 2px dashed rgba(201, 168, 76, 0.5);
+  border-radius: 12px;
+  background: rgba(0, 0, 0, 0.18);
+}
+
+.build-slot {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 70px;
+  min-height: 46px;
+  border-bottom: 2px solid rgba(201, 168, 76, 0.45);
+}
+
+/* The shuffled word tiles, both in the bank and inside a slot */
+.build-chip {
+  font-family: inherit;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #2a1a0e;
+  background: linear-gradient(145deg, #e8d9b5, #c9a84c);
+  border: 2px solid #8a6d2f;
+  border-radius: 10px;
+  padding: 9px 14px;
+  cursor: pointer;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.35);
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+}
+
+.build-chip:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.4);
+}
+
+.build-chip:active {
+  transform: translateY(1px);
+}
+
+.build-chip.in-answer {
+  background: linear-gradient(145deg, #f0e6d3, #d9c48a);
+}
+
+/* Tile is in the right position */
+.build-chip.right {
+  color: #f0fff0;
+  background: linear-gradient(145deg, #4caf50, #2e7d32);
+  border-color: #66bb6a;
+}
+
+/* Tile is in the wrong position */
+.build-chip.wrong {
+  color: #fff;
+  background: linear-gradient(145deg, #ef5350, #c62828);
+  border-color: #ef5350;
+  animation: shake 0.5s ease;
+}
+
+.build-bank {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  max-width: 700px;
+  min-height: 58px;
+}
+
+.build-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+}
+
+/* Must come after the sentence builder rules above so it is not overridden */
+@media (max-width: 600px) {
+  .build-dutch {
+    font-size: 1.15rem;
+    padding: 10px 14px;
+  }
+
+  .build-chip {
+    font-size: 0.95rem;
+    padding: 8px 11px;
+  }
+
+  .build-slot {
+    min-width: 54px;
+    min-height: 40px;
+  }
+
+  .build-answer,
+  .build-bank {
+    gap: 6px;
   }
 }

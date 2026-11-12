@@ -76,5 +76,13 @@
       "dutch": "ik heb een lichte huid",
       "image": "assets/images/light.png"
     }
+  ],
+  "sentences": [
+    { "dutch": "Ik heb bruine ogen.", "english": "I have brown eyes." },
+    { "dutch": "Hij draagt een bril.", "english": "He wears glasses." },
+    { "dutch": "Ik heb een lichte huid.", "english": "I have light skin." },
+    { "dutch": "Zij heeft krullend haar.", "english": "She has curly hair." },
+    { "dutch": "Hij heeft een snor.", "english": "He has a moustache." },
+    { "dutch": "Zijn haar is lang.", "english": "His hair is long." }
   ]
 }
