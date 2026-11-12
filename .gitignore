@@ -1,1 +1,5 @@
 .DS_Store
+
+# Machine-specific MCP paths (see opencode.json.example)
+opencode.json
+.playwright-mcp/

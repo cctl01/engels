@@ -3,6 +3,7 @@
  */
 const Progress = (() => {
   const STORAGE_KEY = 'english-games-progress';
+  const DIFFICULTY_COUNT = 4;
 
   function load() {
     try {
@@ -27,16 +28,30 @@ const Progress = (() => {
   }
 
   /**
+   * Progress entry for a single difficulty
+   */
+  function getDifficultyEntry() {
+    return { stars: 0, completed: false };
+  }
+
+  /**
+   * Progress entry for a topic, with all difficulties
+   */
+  function getTopicEntry() {
+    const topic = {};
+    for (let d = 1; d <= DIFFICULTY_COUNT; d++) {
+      topic['difficulty' + d] = getDifficultyEntry();
+    }
+    return topic;
+  }
+
+  /**
    * Get or create progress for a topic
    */
   function getTopicProgress(topicId) {
     const data = load();
     if (!data.topics[topicId]) {
-      data.topics[topicId] = {
-        difficulty1: { stars: 0, completed: false },
-        difficulty2: { stars: 0, completed: false },
-        difficulty3: { stars: 0, completed: false }
-      };
+      data.topics[topicId] = getTopicEntry();
       save(data);
     }
     return data.topics[topicId];
@@ -47,8 +62,17 @@ const Progress = (() => {
    */
   function recordResult(topicId, difficulty, stars) {
     const data = load();
+    if (!data.topics[topicId]) {
+      data.topics[topicId] = getTopicEntry();
+    }
     const topic = data.topics[topicId];
-    const diff = topic['difficulty' + difficulty];
+    const key = 'difficulty' + difficulty;
+
+    // Older saves may not have this difficulty yet
+    if (!topic[key]) {
+      topic[key] = getDifficultyEntry();
+    }
+    const diff = topic[key];
 
     // Only update if better score
     if (stars > diff.stars) {
@@ -58,9 +82,6 @@ const Progress = (() => {
       diff.completed = true;
     }
 
-    // Auto-advance: if difficulty 1 completed with 2+ stars, mark difficulty 2 as unlocked
-    // We track this via completed flag
-    data.totalStars = (data.totalStars || 0) - (diff.stars - stars); // adjust
     data.totalStars = calculateTotalStars(data);
     data.streak = calculateStreak(data);
     data.lastPlayed = new Date().toISOString();
@@ -73,7 +94,7 @@ const Progress = (() => {
     let total = 0;
     for (const topicId in data.topics) {
       const topic = data.topics[topicId];
-      for (let d = 1; d <= 3; d++) {
+      for (let d = 1; d <= DIFFICULTY_COUNT; d++) {
         total += (topic['difficulty' + d]?.stars || 0);
       }
     }
@@ -110,7 +131,7 @@ const Progress = (() => {
    */
   function isTopicComplete(topicId) {
     const progress = getTopicProgress(topicId);
-    for (let d = 1; d <= 3; d++) {
+    for (let d = 1; d <= DIFFICULTY_COUNT; d++) {
       if (!progress['difficulty' + d]?.completed) return false;
     }
     return true;
