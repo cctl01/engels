@@ -37,6 +37,9 @@ cards, or building sentences — every game rewards you with stars.
   the next free slot, tapping a placed tile puts it back
 - Punctuation is stripped, so no tile ever shows `chair.` — and repeated words
   like `the ... the` are kept as separate tiles
+- Tiles in the bank are always shown **lowercase**, so the capital letter of the
+  first word cannot give the answer away; once a tile is placed it shows its
+  real spelling again (`Can`, `I`, ...), so the finished sentence reads correctly
 - After checking, tiles turn green (right place) or red (wrong place) and the
   feedback says how many words were correct
 - After 2 wrong attempts on the same sentence the correct sentence is revealed,

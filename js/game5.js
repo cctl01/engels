@@ -147,7 +147,12 @@ const Game5 = (() => {
     const tile = state.bank.find(t => t.id === id);
     if (!tile) return '';
 
-    return `<button class="build-chip ${inAnswer ? 'in-answer' : ''}" data-id="${id}">${tile.word}</button>`;
+    // In the bank every tile is lowercase: a capital letter would mark the
+    // first word of the sentence. Once placed, the real spelling shows again,
+    // so the finished sentence still reads correctly and "I" stays "I".
+    const text = inAnswer ? tile.word : tile.word.toLowerCase();
+
+    return `<button class="build-chip ${inAnswer ? 'in-answer' : ''}" data-id="${id}">${text}</button>`;
   }
 
   function refreshBoard() {
