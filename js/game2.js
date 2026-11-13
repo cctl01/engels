@@ -93,7 +93,20 @@ const Game2 = (() => {
 
       if (!answer) return;
 
-      if (answer.replace(/['’]/g, '').replace(/[^a-z/g, '') === correct.replace(/['’]/g, '').replace(/[^a-zA-Z]/g, '')) {
+      // Apostrophes are forgiven ("dont" = "don't"), but the spacing is part of
+      // the lesson: kleurpotloden is "coloured pencils", never "colouredpencils".
+      // So spaces are kept, and only a run of spaces or a stray end punctuation
+      // mark is treated as a typo instead of a wrong answer.
+      const clean = s => s
+        .replace(/['’]/g, '')
+        .replace(/\s+/g, ' ')
+        .replace(/[.!?]+$/, '')
+        .trim();
+
+      // Same letters, wrong spacing: a mistake, but worth an extra hint
+      const withoutSpaces = s => clean(s).replace(/ /g, '');
+
+      if (clean(answer) === clean(correct)) {
         // Correct!
         showFeedback(true, 'Goed zo! ✨');
         input.disabled = true;
@@ -118,7 +131,7 @@ const Game2 = (() => {
         state.mistakes++;
         state.wordMistakes++;
         if (state.wordMistakes >= 2) {
-          showFeedback(false, `Het goede woord is: ${correct}! 🪄`);
+          showFeedback(false, `Het goede woord is: ${correct} 🪄`);
           input.disabled = true;
           submitBtn.disabled = true;
           setTimeout(() => {
@@ -135,7 +148,12 @@ const Game2 = (() => {
             }
           }, 5000);
         } else {
-          showFeedback(false, `Nee, dat is niet goed. Probeer opnieuw! 🪄`);
+          // Right letters but no space between the words: tell them what to fix
+          const hint = withoutSpaces(answer) === withoutSpaces(correct)
+            ? 'Bijna! Vergeten de woorden te scheiden? Typ ze met een spatie ertussen. 🪄'
+            : 'Nee, dat is niet goed. Probeer opnieuw! 🪄';
+
+          showFeedback(false, hint);
           input.value = '';
           input.focus();
         }

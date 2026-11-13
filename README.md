@@ -81,6 +81,21 @@ Place JSON files in the `data/` directory. Each file defines a topic:
    `"english": ["The", "dog", "is", "brown"]`)
 6. Refresh the page — the new topic appears on the home screen
 
+## Typing rules in Typ het Woord
+
+The typed answer is compared in a deliberately narrow way, so that typing the
+word correctly is part of the lesson:
+
+- **Spacing counts.** `colouredpencils` is wrong; the game then hints:
+  *"Vergeten de woorden te scheiden? Typ ze met een spatie ertussen."*
+- **Apostrophes are forgiven.** `dont worry` is accepted for *Don't worry.*
+- **Case is ignored**, a double space is treated as a typo, and a stray `.` `!`
+  or `?` at the end is ignored.
+- Wrong letters, a missing word or a missing plural are mistakes.
+
+To make it stricter, remove the `.replace(/\s+/g, ' ')` line in `js/game2.js`;
+to forgive punctuation everywhere, drop the `.replace(/[.!?]+$/, '')` line.
+
 ## Editing the Games
 
 The games are plain scripts with no build step, so a single stray character
