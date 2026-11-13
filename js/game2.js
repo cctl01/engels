@@ -93,7 +93,7 @@ const Game2 = (() => {
 
       if (!answer) return;
 
-      if (answer.replace(/['’]/g, '').replace(/[^a-zA-Z]/g, '') === correct.replace(/['’]/g, '').replace(/[^a-zA-Z]/g, '')) {
+      if (answer.replace(/['’]/g, '').replace(/[^a-z/g, '') === correct.replace(/['’]/g, '').replace(/[^a-zA-Z]/g, '')) {
         // Correct!
         showFeedback(true, 'Goed zo! ✨');
         input.disabled = true;
