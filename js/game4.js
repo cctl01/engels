@@ -216,9 +216,10 @@ const Game4 = (() => {
    */
   function calculateStars() {
     const pairs = state.pairs.length;
-    if (state.mistakes <= Math.ceil(pairs*1.5)) return 3;
+    if (state.mistakes <= Math.ceil(pairs * 1.5)) return 3;
     if (state.mistakes <= pairs * 2) return 2;
     return 1;
+  }
 
   function showFeedback(isCorrect, message) {
     const feedbackEl = document.getElementById('game-feedback');

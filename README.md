@@ -81,6 +81,18 @@ Place JSON files in the `data/` directory. Each file defines a topic:
    `"english": ["The", "dog", "is", "brown"]`)
 6. Refresh the page — the new topic appears on the home screen
 
+## Editing the Games
+
+The games are plain scripts with no build step, so a single stray character
+stops a whole game from loading (the button for it simply does nothing). After
+hand-editing a game file, check them all:
+
+```bash
+for f in js/*.js; do node --check "$f"; done
+```
+
+No output means everything parses.
+
 ## Running Locally
 
 ```bash
